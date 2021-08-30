@@ -2,7 +2,6 @@ package pl.sda.bytestream;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -10,8 +9,7 @@ public class Main {
         try(FileInputStream in = new FileInputStream("user.txt")) {
             int dataByteAsInt;
             while ((dataByteAsInt = in.read()) != -1) {
-                byte[] bytes = {(byte) dataByteAsInt};
-                String character = new String(bytes, StandardCharsets.UTF_8);
+                char character = (char) dataByteAsInt;
                 System.out.print(character);
             }
         } catch (IOException e) {
